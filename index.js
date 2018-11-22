@@ -140,6 +140,7 @@ export async function showLocation (options) {
   }
 
   if (url) {
+    console.log('url from react-native-link',url);
     return Linking.openURL(url)
   }
 }
