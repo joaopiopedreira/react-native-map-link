@@ -7,7 +7,7 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, StyleSheet, Text, View } from 'react-native'
 
-import { Popup } from 'react-native-map-link'
+import { Popup } from '../components/Popup';
 
 export default class App extends Component {
   state = {

@@ -75,10 +75,10 @@ export async function showLocation (options) {
       let googlePlaceId = options.googlePlaceId ? options.googlePlaceId : null
 
       url = prefixes['google-maps']
-      url += `?q=${useTitleForQuery ? encodedTitle : latlng}`
+      url += (isIOS) ? `?q=${useTitleForQuery ? encodedTitle : latlng}` : `:q=${latlng}`
       url += (isIOS) ? '&api=1' : ''
-      url += (googlePlaceId) ? `&query_place_id=${googlePlaceId}` : ''
-      url += (useSourceDestiny) ? `&saddr=${sourceLatLng}&daddr=${latlng}` : `&ll=${latlng}`
+      url += (isIOS) ? ((googlePlaceId) ? `&query_place_id=${googlePlaceId}` : '') : '';
+      url += (isIOS) ? ((useSourceDestiny) ? `&saddr=${sourceLatLng}&daddr=${latlng}` : `&ll=${latlng}`) : ''
       break
     case 'citymapper':
       url = `${prefixes['citymapper']}directions?endcoord=${latlng}`
