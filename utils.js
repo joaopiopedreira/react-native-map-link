@@ -35,7 +35,9 @@ function isAppInstalled (app) {
     if (!(app in prefixes)) {
       return resolve(false)
     }
-
+    
+    if(app === 'google-maps') resolve(true);
+    
     Linking.canOpenURL(prefixes[app])
       .then((result) => {
         resolve(!!result)
