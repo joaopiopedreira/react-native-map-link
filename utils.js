@@ -40,11 +40,11 @@ function isAppInstalled (app) {
       if(isIOS) {
         Linking.canOpenURL(prefixes[app])
           .then((result) => {
-            resolve(!!result)
+            return resolve(!!result)
           })
           .catch(() => resolve(false))
       } else {
-        resolve(true);
+        return resolve(true);
       }
     }
     
